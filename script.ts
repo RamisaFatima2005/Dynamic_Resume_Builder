@@ -1,4 +1,3 @@
-// Profile Picture Handling
 let resumeImage: HTMLImageElement = document.getElementById(
     "resumeImage"
   ) as HTMLImageElement;
@@ -32,14 +31,11 @@ let resumeImage: HTMLImageElement = document.getElementById(
         field.classList.add("error");
       } else {
         field.classList.remove("error");
-        // field.classList.add('greenClass')
       }
     });
     GenerateResumeButton.disabled = !IsValid;
   };
-  
-  // Resume Variables;
-  // COntact information Variable resume
+
   let firstUserName: HTMLElement = document.getElementById(
     "firstUserName"
   ) as HTMLElement;
@@ -60,7 +56,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
   ) as HTMLElement;
   let userID: HTMLElement = document.getElementById("userID") as HTMLElement;
   
-  // INput fieled Variables
+  
   let inputfName: HTMLInputElement = document.getElementById(
     "inputfName"
   ) as HTMLInputElement;
@@ -83,7 +79,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     "inputAddress"
   ) as HTMLInputElement;
   
-  // function to allow only numbers or deshes in CNIC FIELD
+  
   inputCnic.addEventListener("keypress", (event) => {
     const char = event.key;
     if (!/[0-9-]/.test(char)) {
@@ -91,7 +87,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     }
   });
   
-  // AddMoreEducations Function
+  
   const AddMoreEducations = () => {
     const AddMoreEdu = document.getElementsByClassName("Education-Section")[0];
   
@@ -117,7 +113,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreEdu.appendChild(WrapperDiv);
   };
   
-  // AddMoreExperience Function
+  
   const AddMoreExperience = () => {
     const AddMoreExp = document.getElementsByClassName("Experience-Section")[0];
   
@@ -139,7 +135,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreExp.appendChild(WrapperDiv);
   };
   
-  // AddMoreSkill Function
+  
   const AddMoreSkills = () => {
     const AddMoreSkill = document.getElementsByClassName("Skills-Section")[0];
   
@@ -154,21 +150,21 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreSkill.appendChild(inputOne);
   };
   
-  // education Ul create
+  
   let newUlDiv: HTMLUListElement = document.createElement("ul"); //yahan mene new ul create kia hai
   newUlDiv.classList.add("education-div");
   
-  // experience Ul create
+  
   let newUlDiv2: HTMLUListElement = document.createElement("ul"); //yahan mene new ul create kia hai
   newUlDiv.classList.add("experience-div");
   
-  // Main Function Of GenerateResume
+  
   const GenerateResumeFunction = (e: Event) => {
     e.preventDefault();
   
     console.log("running");
   
-    // Veriables Injecting Contact Info ANd UserName ANd Profession
+   
     firstUserName.innerText = inputfName.value;
     lastUserName.innerText = inputlName.value;
     profession.innerText = inputProfession.value;
@@ -208,7 +204,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
     ) as HTMLDivElement;
     educationContainer.appendChild(newUlDiv);
   
-    // experience
   
     const jobTitle = document.getElementsByClassName(
       "Experience-title"
@@ -240,7 +235,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     ) as HTMLDivElement;
     experiencecontainer.appendChild(newUlDiv2);
   
-    // SKILLS SECTION
+  
   
     const skills = document.getElementsByClassName(
       "Skills-class"
@@ -262,7 +257,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
       skillsContainer.innerHTML = skillsLoop;
     }
   
-    //Hide container-form input fields if genrated resume button clicked
+    
     const FormContainer: HTMLDivElement = document.getElementById(
       "container-form"
     ) as HTMLDivElement;
@@ -279,19 +274,19 @@ let resumeImage: HTMLImageElement = document.getElementById(
   
   
   
-  // Sare checkboxes ko select karna jo 'language' name rakhte hain
-  const languageCheckboxes = document.querySelectorAll('input[name="language"]') as NodeListOf<HTMLInputElement>;
-  // let NewList =  [...languageCheckboxes]
   
-  // Check ki kaunse language check hain
+  const languageCheckboxes = document.querySelectorAll('input[name="language"]') as NodeListOf<HTMLInputElement>;
+  
+  
+  
   
   let languageUl = document.getElementById('language-ul') as HTMLUListElement;
-  languageUl.innerHTML = ''; // List ko clear kar dena pehle
+  languageUl.innerHTML = ''; 
   
     languageCheckboxes.forEach((li) => {
       if (li.checked) {
         let listItem = `<li class="language">${li.value}</li>`;
-        languageUl.insertAdjacentHTML('beforeend', listItem); // Append the checked items
+        languageUl.insertAdjacentHTML('beforeend', listItem); 
       }
     });
   
@@ -304,7 +299,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
   
   
   
-  }; //generate resume block end
+  }; 
   
   
   
@@ -316,15 +311,13 @@ let resumeImage: HTMLImageElement = document.getElementById(
   GenerateResumeButton.disabled = true;
   GenerateResumeButton.addEventListener("click", GenerateResumeFunction);
   
-  // Print resume Functions
   const PrintResume = () => {
     document.title =  `${window.location.origin}?name=${encodeURIComponent(firstUserName.innerText)}`;
     window.print();
   };
   
   
-  // edit resume button
-  // function
+  
   const Edit = () => {
     //Hide container-form input fields if genrated resume button clicked
     const FormContainer: HTMLDivElement = document.getElementById(
@@ -340,15 +333,11 @@ let resumeImage: HTMLImageElement = document.getElementById(
   
   
   
-  
-  // delet resume button
-  // function
   const Delete= () => {
     window.location.reload();
   }
   
   
-  // shareable link handling
   
   const shareable = () => {
     if (navigator.share) {
