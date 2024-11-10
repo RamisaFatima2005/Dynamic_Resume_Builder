@@ -1,5 +1,5 @@
 
- {
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -37,7 +37,6 @@
     border-radius: 5px;
   }
   
- 
   .resume-container {
     width: 794px;
     height: 1123px;

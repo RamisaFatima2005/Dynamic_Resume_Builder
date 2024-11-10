@@ -35,7 +35,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
     });
     GenerateResumeButton.disabled = !IsValid;
   };
-
+  
   let firstUserName: HTMLElement = document.getElementById(
     "firstUserName"
   ) as HTMLElement;
@@ -55,7 +55,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
     "userAddress"
   ) as HTMLElement;
   let userID: HTMLElement = document.getElementById("userID") as HTMLElement;
-  
   
   let inputfName: HTMLInputElement = document.getElementById(
     "inputfName"
@@ -79,14 +78,12 @@ let resumeImage: HTMLImageElement = document.getElementById(
     "inputAddress"
   ) as HTMLInputElement;
   
-  
   inputCnic.addEventListener("keypress", (event) => {
     const char = event.key;
     if (!/[0-9-]/.test(char)) {
       event.preventDefault();
     }
   });
-  
   
   const AddMoreEducations = () => {
     const AddMoreEdu = document.getElementsByClassName("Education-Section")[0];
@@ -113,7 +110,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreEdu.appendChild(WrapperDiv);
   };
   
-  
   const AddMoreExperience = () => {
     const AddMoreExp = document.getElementsByClassName("Experience-Section")[0];
   
@@ -135,7 +131,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreExp.appendChild(WrapperDiv);
   };
   
-  
   const AddMoreSkills = () => {
     const AddMoreSkill = document.getElementsByClassName("Skills-Section")[0];
   
@@ -150,21 +145,18 @@ let resumeImage: HTMLImageElement = document.getElementById(
     AddMoreSkill.appendChild(inputOne);
   };
   
-  
-  let newUlDiv: HTMLUListElement = document.createElement("ul"); //yahan mene new ul create kia hai
+  let newUlDiv: HTMLUListElement = document.createElement("ul"); 
   newUlDiv.classList.add("education-div");
   
-  
-  let newUlDiv2: HTMLUListElement = document.createElement("ul"); //yahan mene new ul create kia hai
+  let newUlDiv2: HTMLUListElement = document.createElement("ul"); 
   newUlDiv.classList.add("experience-div");
-  
   
   const GenerateResumeFunction = (e: Event) => {
     e.preventDefault();
   
     console.log("running");
   
-   
+    
     firstUserName.innerText = inputfName.value;
     lastUserName.innerText = inputlName.value;
     profession.innerText = inputProfession.value;
@@ -236,7 +228,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
     experiencecontainer.appendChild(newUlDiv2);
   
   
-  
     const skills = document.getElementsByClassName(
       "Skills-class"
     ) as HTMLCollectionOf<HTMLInputElement>;
@@ -257,7 +248,6 @@ let resumeImage: HTMLImageElement = document.getElementById(
       skillsContainer.innerHTML = skillsLoop;
     }
   
-    
     const FormContainer: HTMLDivElement = document.getElementById(
       "container-form"
     ) as HTMLDivElement;
@@ -271,17 +261,10 @@ let resumeImage: HTMLImageElement = document.getElementById(
   
   
   
-  
-  
-  
-  
   const languageCheckboxes = document.querySelectorAll('input[name="language"]') as NodeListOf<HTMLInputElement>;
   
-  
-  
-  
   let languageUl = document.getElementById('language-ul') as HTMLUListElement;
-  languageUl.innerHTML = ''; 
+  languageUl.innerHTML = '';
   
     languageCheckboxes.forEach((li) => {
       if (li.checked) {
@@ -299,7 +282,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
   
   
   
-  }; 
+  };
   
   
   
@@ -317,9 +300,7 @@ let resumeImage: HTMLImageElement = document.getElementById(
   };
   
   
-  
   const Edit = () => {
-    //Hide container-form input fields if genrated resume button clicked
     const FormContainer: HTMLDivElement = document.getElementById(
       "container-form"
     ) as HTMLDivElement;

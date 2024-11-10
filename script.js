@@ -18,7 +18,6 @@ const checkAllInput = () => {
         }
         else {
             field.classList.remove("error");
-            // field.classList.add('greenClass')
         }
     });
     GenerateResumeButton.disabled = !IsValid;
@@ -30,7 +29,6 @@ let userPhone = document.getElementById("userPhone");
 let userEmail = document.getElementById("userEmail");
 let userAddress = document.getElementById("userAddress");
 let userID = document.getElementById("userID");
-
 let inputfName = document.getElementById("inputfName");
 let inputlName = document.getElementById("inputlName");
 let inputProfession = document.getElementById("inputProfession");
@@ -38,14 +36,12 @@ let inputNumber = document.getElementById("inputNumber");
 let inputEmail = document.getElementById("inputEmail");
 let inputCnic = document.getElementById("inputCnic");
 let inputAddress = document.getElementById("inputAddress");
-
 inputCnic.addEventListener("keypress", (event) => {
     const char = event.key;
     if (!/[0-9-]/.test(char)) {
         event.preventDefault();
     }
 });
-
 const AddMoreEducations = () => {
     const AddMoreEdu = document.getElementsByClassName("Education-Section")[0];
     let WrapperDiv = document.createElement("div");
@@ -62,7 +58,6 @@ const AddMoreEducations = () => {
     WrapperDiv.appendChild(inputTwo);
     AddMoreEdu.appendChild(WrapperDiv);
 };
-
 const AddMoreExperience = () => {
     const AddMoreExp = document.getElementsByClassName("Experience-Section")[0];
     let WrapperDiv = document.createElement("div");
@@ -79,7 +74,6 @@ const AddMoreExperience = () => {
     WrapperDiv.appendChild(inputTwo);
     AddMoreExp.appendChild(WrapperDiv);
 };
-
 const AddMoreSkills = () => {
     const AddMoreSkill = document.getElementsByClassName("Skills-Section")[0];
     let inputOne = document.createElement("input");
@@ -88,17 +82,13 @@ const AddMoreSkills = () => {
     inputOne.setAttribute("type", "text");
     AddMoreSkill.appendChild(inputOne);
 };
-
-let newUlDiv = document.createElement("ul"); //yahan mene new ul create kia hai
+let newUlDiv = document.createElement("ul");
 newUlDiv.classList.add("education-div");
-
-let newUlDiv2 = document.createElement("ul"); //yahan mene new ul create kia hai
+let newUlDiv2 = document.createElement("ul");
 newUlDiv.classList.add("experience-div");
-
 const GenerateResumeFunction = (e) => {
     e.preventDefault();
     console.log("running");
-  
     firstUserName.innerText = inputfName.value;
     lastUserName.innerText = inputlName.value;
     profession.innerText = inputProfession.value;
@@ -123,7 +113,6 @@ const GenerateResumeFunction = (e) => {
     }
     let educationContainer = document.getElementById("education-container");
     educationContainer.appendChild(newUlDiv);
-    
     const jobTitle = document.getElementsByClassName("Experience-title");
     const jobDetail = document.getElementsByClassName("Experience-detail");
     let jobTitleArray = [...jobTitle];
@@ -142,7 +131,6 @@ const GenerateResumeFunction = (e) => {
     }
     let experiencecontainer = document.getElementById("experience-container");
     experiencecontainer.appendChild(newUlDiv2);
-    
     const skills = document.getElementsByClassName("Skills-class");
     let skillsArray = [...skills];
     const skillsLoop = skillsArray
@@ -156,46 +144,38 @@ const GenerateResumeFunction = (e) => {
     if (skillsContainer) {
         skillsContainer.innerHTML = skillsLoop;
     }
-   
     const FormContainer = document.getElementById("container-form");
     const ResumeContainer = document.getElementById("container-resume");
     FormContainer.style.display = "none";
     ResumeContainer.style.display = "flex";
-    
     const languageCheckboxes = document.querySelectorAll('input[name="language"]');
-    
     let languageUl = document.getElementById('language-ul');
-    languageUl.innerHTML = ''; // List ko clear kar dena pehle
+    languageUl.innerHTML = '';
     languageCheckboxes.forEach((li) => {
         if (li.checked) {
             let listItem = `<li class="language">${li.value}</li>`;
-            languageUl.insertAdjacentHTML('beforeend', listItem); // Append the checked items
+            languageUl.insertAdjacentHTML('beforeend', listItem);
         }
     });
-}; 
+};
 allInputsField.forEach((input) => {
     input.addEventListener("input", checkAllInput);
 });
 GenerateResumeButton.disabled = true;
 GenerateResumeButton.addEventListener("click", GenerateResumeFunction);
-
 const PrintResume = () => {
     document.title = `${window.location.origin}?name=${encodeURIComponent(firstUserName.innerText)}`;
     window.print();
 };
-
 const Edit = () => {
-    //Hide container-form input fields if genrated resume button clicked
     const FormContainer = document.getElementById("container-form");
     const ResumeContainer = document.getElementById("container-resume");
     FormContainer.style.display = "flex";
     ResumeContainer.style.display = "none";
 };
-
 const Delete = () => {
     window.location.reload();
 };
-
 const shareable = () => {
     if (navigator.share) {
         navigator.share({
