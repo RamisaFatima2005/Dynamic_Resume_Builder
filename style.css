@@ -1,7 +1,5 @@
-/* In the name of Allah, the Most Gracious, the Most Merciful */
 
-/* css Default resets */
-* {
+ {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -39,7 +37,7 @@
     border-radius: 5px;
   }
   
-  /* Main Container Of Resume Builder  */
+ 
   .resume-container {
     width: 794px;
     height: 1123px;
@@ -68,7 +66,6 @@
     list-style: inside;
   }
   
-  /* SOCIAL LINKS  */
   
   .links {
     display: flex;
